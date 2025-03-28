@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Be My Valentine?</title>
+  <style>
+    body {
+      text-align: center;
+      background-color: #fff0f6;
+      font-family: Arial, sans-serif;
+    }
+    img {
+      max-width: 300px;
+      margin-top: 50px;
+    }
+    #buttons {
+      margin-top: 20px;
+    }
+    button {
+      font-size: 24px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 10px;
+    }
+    #yesBtn {
+      background-color: #4CAF50;
+      color: white;
+    }
+    #noBtn {
+      background-color: #f44336;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <img id="valentineGif" src="" alt="Cute Valentine Gif">
+  <div id="buttons">
+    <button id="yesBtn">Yes</button>
+    <button id="noBtn">No</button>
+  </div>
+
+  <script>
+    const yesBtn = document.getElementById('yesBtn');
+    const noBtn = document.getElementById('noBtn');
+    const messages = [
+      "Are you sure?",
+      "Hmmm, I don't think this is what you're supposed to choose 🤔",
+      "Woah woah woah, what's going on here?",
+      "Wow so you're gonna keep this act up?",
+      "I've got all day",
+      "Ok Pookie that's enough games, you can say 'Yes' now",
+      "POOKIE WTH STOP PLEASE",
+      "I can't believe you did this even after I begged you",
+      "The 'Yes' button is literally RIGHT THERE",
+      "Should've gone to Specsavers",
+      "Baby please why are you doing this to me 😭",
+      "ERICA WTH I DID NOT THINK YOU'D GET THIS FAR",
+      "I'm sorry I lost my cool",
+      "Please baby I promise you won't regret it",
+      "I guess I'll just kms",
+      "Ok I'm literally dead now",
+      "OK IM DEAD NOW STOP PRESSING THIS",
+      "Babes, why you always gotta be playin fr fr",
+      "Stop trynna act hard to get Pookie"
+    ];
+
+    let noClickCount = 0;
+
+    noBtn.addEventListener('click', () => {
+      noClickCount++;
+      noBtn.textContent = messages[Math.min(noClickCount - 1, messages.length - 1)];
+      yesBtn.style.transform = `scale(${1 + noClickCount * 0.05})`;
+    });
+
+    yesBtn.addEventListener('click', () => {
+      document.body.innerHTML = `
+        <h1>Yay! Here's what's next ❤️</h1>
+        <p><strong>Date:</strong> February 14</p>
+        <p><strong>Time:</strong> 6:30 PM</p>
+        <p><strong>Dress code:</strong> Fancy (but comfy)</p>
+        <p><strong>Where to meet:</strong> Outside your apartment</p>
+        <p><strong>Dinner location:</strong> <em>It's a surprise! 🌟</em></p>
+        <p><strong>After-dinner activity:</strong> <em>Also a surprise! 🎉</em></p>
+      `;
+    });
+
+    // Replace with your chosen gif URL
+    document.getElementById('valentineGif').src = 'https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif';
+  </script>
+</body>
+</html>
